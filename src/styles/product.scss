@@ -1,4 +1,231 @@
-
-@import 'fonts.scss';
+@import "./branding";
 
 /** Add styles here **/
+// Mobile layout
+$sm-page-padding-top: 40px;
+$sm-page-padding-left: 20px;
+$sm-page-padding-bottom: $sm-page-padding-left;
+$sm-page-padding-right: $sm-page-padding-left;
+$sm-color-swatch-padding: 20px;
+$sm-color-swatch-size: 16px;
+
+// Desktop layout
+$lg-page-padding-top: 70px;
+$lg-page-padding-left: 64px;
+$lg-page-padding-bottom: $lg-page-padding-left;
+$lg-page-padding-right: $lg-page-padding-left;
+$lg-color-swatch-padding: 24px;
+$lg-color-swatch-size: 24px;
+
+// Page specific rules.
+.pdp {
+  &-product {
+    font-size: 15px;
+    @include lg-bp {
+      font-size: 17px;
+    }
+
+    &__page {
+      color: $black;
+      position: relative;
+      margin: 0 auto;
+      max-width: 380px;
+      padding: $sm-page-padding-top $sm-page-padding-right
+        $sm-page-padding-bottom $sm-page-padding-left;
+
+      @include lg-bp {
+        max-width: 1304px;
+        padding: $lg-page-padding-top $lg-page-padding-right
+          $lg-page-padding-bottom $lg-page-padding-left;
+        display: flex;
+      }
+    }
+
+    &__features {
+      &--category {
+        color: $light-gray;
+        margin: 0;
+        position: absolute;
+        left: $sm-page-padding-left;
+        top: $sm-page-padding-top;
+
+        @include lg-bp {
+          position: initial;
+          margin-bottom: 15px;
+        }
+      }
+
+      &--name {
+        font-family: $elc-font-standard;
+        font-size: 20px;
+        line-height: 24px;
+        margin: 0;
+
+        @include lg-bp {
+          font-size: 28px;
+          line-height: 32px;
+        }
+      }
+
+      &--description {
+        margin: 10px 0 20px 0;
+      }
+
+      figure {
+        margin: 0;
+      }
+
+      &--rating {
+        width: 115px;
+        vertical-align: middle;
+      }
+
+      &--all-ratings {
+        width: 30px;
+        vertical-align: middle;
+      }
+
+      .title {
+        font-family: $elc-font-standard;
+        margin: 20px 0 0 0;
+      }
+
+      &--features {
+        line-height: 1.5;
+
+        @include lg-bp {
+          display: flex;
+          flex-wrap: wrap;
+
+          > div {
+            width: 45%;
+            margin-right: 5%;
+          }
+        }
+      }
+
+      &--shade {
+        &.container {
+          position: relative;
+          border: $lightest-gray 1px solid;
+          display: block;
+          margin-top: 30px;
+          padding: {
+            top: $sm-color-swatch-padding;
+            right: $sm-color-swatch-padding * 2 + $sm-color-swatch-size;
+            bottom: $sm-color-swatch-padding;
+            left: $sm-color-swatch-padding;
+          }
+
+          @include lg-bp {
+            max-width: 276px;
+            margin-top: 36px;
+            padding: {
+              top: $lg-color-swatch-padding;
+              right: $lg-color-swatch-padding * 2 + $lg-color-swatch-size;
+              bottom: $lg-color-swatch-padding;
+              left: $lg-color-swatch-padding;
+            }
+          }
+        }
+
+        &.color {
+          position: absolute;
+          right: $sm-color-swatch-padding;
+          top: $sm-color-swatch-padding;
+          width: $sm-color-swatch-size;
+          height: $sm-color-swatch-size;
+
+          @include lg-bp {
+            right: $lg-color-swatch-padding;
+            top: $lg-color-swatch-padding;
+            width: $lg-color-swatch-size;
+            height: $lg-color-swatch-size;
+          }
+        }
+      }
+    }
+
+    &__image {
+      padding-bottom: 30px;
+
+      &--figure,
+      &--tag {
+        max-width: 100%;
+      }
+
+      @include lg-bp {
+        width: 576px;
+        padding-bottom: 0;
+      }
+    }
+
+    &__hr {
+      background: transparent;
+      margin: 20px 0 10px 0;
+      border: {
+        top: none;
+        right: none;
+        left: none;
+        bottom: 1px solid $lightest-gray;
+      }
+    }
+
+    &__purchase {
+      font-family: $elc-font-standard;
+
+      &--container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      &--quantity,
+      &--frequency {
+        width: 50%;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        padding: 20px 0;
+
+        @include lg-bp {
+          padding: 36px 0;
+        }
+
+        img {
+          height: 24px;
+          vertical-align: middle;
+          margin-top: -7px;
+        }
+
+        > span:first-child {
+          margin-right: 5px;
+
+          @include lg-bp {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      &--price {
+        width: 100%;
+        font-size: 20px;
+        margin-top: 10px;
+
+        @include lg-bp {
+          width: 50%;
+          font-size: 28px;
+        }
+      }
+
+      &--button {
+        margin-top: 30px;
+        width: 100%;
+
+        @include lg-bp {
+          width: 50%;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

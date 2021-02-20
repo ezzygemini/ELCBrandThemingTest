@@ -1,17 +1,27 @@
-import React from 'react';
+import React from "react";
 
-import caret from './images/caret.png';
-import minus from './images/minus.png';
-import plus from './images/plus.png';
+import caret from "./images/caret.png";
+import minus from "./images/minus.png";
+import plus from "./images/plus.png";
+import { pdpProductElementClasses } from "./utils";
 
-export const ProductPurchase = ({ price }) =>
-  <section>
-    <div>
-      Quantity <img src={minus} alt="Decrease Quantity"/> 1 <img src={plus} alt="Increase Quantity"/>
+const cls = pdpProductElementClasses("purchase");
+
+export const ProductPurchase = ({ price }) => (
+  <section {...cls("container")}>
+    <div {...cls("quantity")}>
+      <span>Quantity</span>
+      <img src={minus} alt="Decrease Quantity" />
+      <span> 1 </span>
+      <img src={plus} alt="Increase Quantity" />
     </div>
-    <div>
-      One Time Purchase  <img src={caret} alt="Select Frequency"/>
+    <div {...cls("frequency")}>
+      <span>One Time Purchase</span>
+      <img src={caret} alt="Select Frequency" />
     </div>
-    <div>{price}</div>
-    <button name="AddToBag">Add To Bag</button>
+    <div {...cls("price")}>{price}</div>
+    <button {...cls("button", ["add-to-bag", "button"])} name="AddToBag">
+      Add To Bag
+    </button>
   </section>
+);

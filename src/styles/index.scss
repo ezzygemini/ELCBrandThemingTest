@@ -1,4 +1,11 @@
-@import 'fonts.scss';
+@import "./branding";
+
+// Reset native HTML properties
+// (which should be done at the start of the app)
+h4,
+p {
+  margin: 0;
+}
 
 $elc-font-path: "../fonts/";
 
@@ -42,4 +49,32 @@ body {
   margin: 0px auto;
   position: relative;
   width: 100%;
+
+  // If the navigation is positioned absolutely,
+  // we need to add padding to the container to
+  // avoid overlapping.
+  padding-top: 72px;
+  @include lg-bp {
+    padding-top: 136px;
+  }
+}
+
+// Global branded rules
+// these should come from a global site-wide stylesheet.
+.link {
+  color: $black;
+  font-family: $elc-font-standard;
+}
+
+.button {
+  background: $deep-black;
+  padding: 21px;
+  text-align: center;
+  font-family: $elc-font-standard;
+  color: white;
+  border: none;
+
+  @include lg-bp {
+    padding: 24px;
+  }
 }

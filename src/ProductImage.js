@@ -1,7 +1,10 @@
-import React from 'react';
+import React from "react";
+import { pdpProductElementClasses } from "./utils";
 
-export const ProductImage = ({ image }) =>
-  <figure>
-    <img src={image} alt="Product" />
+const cls = pdpProductElementClasses("image");
+
+export const ProductImage = ({ image }) => (
+  <figure {...cls("figure")}>
+    <img {...cls("tag")} src={image} alt="Product" />
   </figure>
-    
+);
